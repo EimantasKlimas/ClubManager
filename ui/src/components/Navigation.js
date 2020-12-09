@@ -34,7 +34,7 @@ import {
 
   return (
     <nav>
-    <AppBar>
+    <AppBar position={"sticky"} >
       <div className="Navigation">
         <IconButton
           edge="start"
