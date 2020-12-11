@@ -4,8 +4,7 @@
 
 # Serve index page from public directory
 GET     /                           controllers.FrontendController.index()
-POST    /                           controllers.FrontendController.index()
-
+POST    /club/create                controllers.ClubManagmentController.createClub()
 # An example route (Prefix all API routes with apiPrefix defined in application.conf)
 GET     /api/summary                controllers.HomeController.appSummary
 

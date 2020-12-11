@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
 import {Navigation} from "./components/Navigation";
 import {Content} from "./components/Content"
 import {BrowserRouter as Router} from 'react-router-dom';

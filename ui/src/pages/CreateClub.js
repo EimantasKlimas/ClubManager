@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Container from "@material-ui/core/Container";
 import {VALUES} from "../constants/values";
@@ -39,7 +38,7 @@ const CreateClub = () => {
     setName("");
     setSurname("");
   }
-  
+
   return(
     <Container className="form-container">
         <Paper className="form-item">

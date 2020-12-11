@@ -14,7 +14,6 @@ import play.api.mvc._
 class FrontendController @Inject()(assets: Assets, errorHandler: HttpErrorHandler, config: Configuration, cc: ControllerComponents) extends AbstractController(cc) {
 
   def index: Action[AnyContent] = {
-    println("Works partly")
     assets.at("index.html")
   }
 
