@@ -1,8 +1,31 @@
 .member-form {
-  padding-left: 2em;
+  right: auto;
+  left: auto;
 }
 
 .member-form-item {
   padding: 0em 1em 1em 1em ;
 }
 
+.form-input {
+  width: 12em;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4em;
+
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-around;
+}
+.form-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
