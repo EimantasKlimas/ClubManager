@@ -4,8 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import {VALUES} from "../constants/values";
+import {MemberList} from "../components/MemberList"
 import "../styles/CreateClub.css"
+import Container from "@material-ui/core/Container";
 
 const CreateClub = () => {
   const [memberName, setName] = React.useState("");
@@ -37,36 +40,66 @@ const CreateClub = () => {
     setSurname("");
   }
 
+  //TODO convert to components
   return(
-    <Grid container spacing={2} className="form">
+    <Grid container spaceing={2}>
       <Paper elevation={3}>
-        <Grid item xs={12} className="form-item">
+      <Grid container spacing={2}>
+        <Container maxWidth="xs">
+          <form>
+            <Grid container spacing={3}>
+
+              <Grid item xs={12} className="member-form-item">
+                <TextField
+                  label="Club Name"
+                  name={VALUES.MEMBERSURNAME}
+                  size="small"
+                  variant="standard"
+                  onChange={handleChange}/>
+              </Grid>
+
+              <Grid item xs={12}>
+                <IconButton aria-label="addMember" onClick={handleAddMember}>
+                  <AddCircleIcon fontSize="large" />
+                </IconButton>
+              </Grid>
+
+            </Grid>
+          </form>
+        </Container>
+      </Grid>
+      </Paper>
+
+    <Grid item container spacing={2} className="member-form" xs={3}>
+      <Paper elevation={3}>
+        <Grid item xs={12} className="member-form-item">
           <TextField
-            label="Name"
+            label="Member Name"
             value={memberName}
             name={VALUES.MEMBERNAME}
             size="small"
             variant="standard"
             onChange={handleChange}/>
         </Grid>
-        <Grid item xs={12} className="form-item">
+        <Grid item xs={12} className="member-form-item">
           <TextField
-            label="Surname"
+            label="Member Surname"
             value={memberSurname}
             name={VALUES.MEMBERSURNAME}
             size="small"
             variant="standard"
             onChange={handleChange}/>
         </Grid>
-        <IconButton aria-label="delete" onClick={handleAddMember}>
-          <AddCircleIcon fontSize="large" />
+        <IconButton aria-label="addMember" onClick={handleAddMember}>
+          <PersonAddIcon fontSize="large" />
         </IconButton>
+        <Grid item xs={12}>
+          <Paper elevation={3}>
+            <MemberList memberList = {memberList}/>
+          </Paper>
+        </Grid>
       </Paper>
-      <Grid item xs={12}>
-      <Paper elevation={3}>
-
-      </Paper>
-      </Grid>
+    </Grid>
     </Grid>
   )
 }
