@@ -13,7 +13,7 @@ object MemberActor {
   )
 }
 
-class MemberActor @Inject()(memberRepository: MemberRepository) extends Actor {
+class MemberActor @Inject()(memberRepository: MemberRepository) extends Actor with ActorLogging {
   import MemberActor._
 
   def receive: PartialFunction[Any, Unit] = {

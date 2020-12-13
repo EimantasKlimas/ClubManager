@@ -13,7 +13,7 @@ class MemberRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impl
   import dbConfig._
   import profile.api._
 
-  class Members(tag: Tag) extends Table[MemberDTO](tag, "clubs") {
+  class Members(tag: Tag) extends Table[MemberDTO](tag, "club_members") {
 
     def id: Rep[String] = column[String]("id", O.PrimaryKey)
     def name: Rep[String] = column[String]("name")
@@ -30,9 +30,11 @@ class MemberRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impl
 
   private val clubs = TableQuery[Members]
 
-  def saveMember(club: MemberDTO): Future[Unit] = db.run (clubs += club).map(_ => ())
+  def saveMember(club: MemberDTO): Future[Unit] = {
+    db.run (clubs += club).map(_ => ())
+  }
 
-  def getClubs(): Future[Seq[MemberDTO]]= {
+  def getMembers(): Future[Seq[MemberDTO]]= {
     db.run(clubs.result)
   }
 }
