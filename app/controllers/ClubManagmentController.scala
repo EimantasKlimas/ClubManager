@@ -26,7 +26,6 @@ class ClubManagmentController @Inject()(
       clubdata <- Unmarshal(requestBody).to[ClubData]
       _ <- clubService.saveClub(clubdata)
     } yield {
-      println(clubdata)
       Ok
     }
   }

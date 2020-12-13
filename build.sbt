@@ -7,15 +7,16 @@ val AkkaHttpVersion = "10.2.2"
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
-    version := "2.8.0",
+    version := "2.7.0",
     scalaVersion := "2.13.1",
+
     libraryDependencies ++= Seq(
       ws,
       guice,
-      jdbc,
-      evolutions,
       "com.h2database" % "h2" % "1.4.199",
       "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
+      "com.typesafe.play" %% "play-slick" % "5.0.0",
+      "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0",
       "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
       "com.typesafe.akka" %% "akka-actor"  % AkkaVersion,
       "com.typesafe.akka" %% "akka-stream" % AkkaVersion,

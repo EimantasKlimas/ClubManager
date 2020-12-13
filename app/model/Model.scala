@@ -1,6 +1,6 @@
 package model
 
-import repositories.data.model.{ClubDTO, MemberDTO}
+import repositories.data.Model.{ClubDTO, MemberDTO}
 
 object Model {
   case class Member(
