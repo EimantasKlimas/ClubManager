@@ -1,4 +1,6 @@
+import actors.MemberActor
 import com.google.inject.AbstractModule
+import play.api.libs.concurrent.AkkaGuiceSupport
 
 /**
  * This class is a Guice module that tells Guice how to bind several
@@ -10,9 +12,10 @@ import com.google.inject.AbstractModule
  * adding `play.modules.enabled` settings to the `application.conf`
  * configuration file.
  */
-class Module extends AbstractModule {
+class Module extends AbstractModule with AkkaGuiceSupport {
 
-  override def configure() = {
+  override def configure: Unit = {
+    bindActor[MemberActor]("member-actor")
   }
 
 }

@@ -8,7 +8,7 @@ import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 
 class ClubRepository @Inject()(
-                                dbConfigProvider: DatabaseConfigProvider
+  dbConfigProvider: DatabaseConfigProvider
  )(implicit ec: ExecutionContext) {
  val dbConfig = dbConfigProvider.get[JdbcProfile]
 
@@ -25,7 +25,6 @@ class ClubRepository @Inject()(
     name
   ) <> (ClubDTO.tupled, ClubDTO.unapply)
  }
-
 
  private val clubs = TableQuery[Clubs]
 

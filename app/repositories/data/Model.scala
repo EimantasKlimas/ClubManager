@@ -6,7 +6,8 @@ object Model {
   case class MemberDTO(
     id: String = generateId,
     name: String,
-    surname: String
+    surname: String,
+    clubId: String
   )
   case class ClubDTO (
     id: String = generateId,

@@ -15,10 +15,11 @@ object Model {
       name = name
     )
 
-    def toMemberDTOVector: Vector[MemberDTO] = members.map{ member =>
+    def toMemberDTOVector(clubId: String): Vector[MemberDTO] = members.map{ member =>
       MemberDTO(
         name = member.name,
-        surname = member.surname
+        surname = member.surname,
+        clubId = clubId
       )
     }
   }
