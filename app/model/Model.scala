@@ -1,5 +1,6 @@
 package model
 
+import actors.MemberActor.SaveMemberRequest
 import repositories.data.Model.{ClubDTO, MemberDTO}
 
 object Model {
@@ -15,11 +16,13 @@ object Model {
       name = name
     )
 
-    def toMemberDTOVector(clubId: String): Vector[MemberDTO] = members.map{ member =>
-      MemberDTO(
-        name = member.name,
-        surname = member.surname,
-        clubId = clubId
+    def toMemberRequestVector(clubId: String): Vector[SaveMemberRequest] = members.map { member =>
+      SaveMemberRequest(
+        MemberDTO(
+          name = member.name,
+          surname = member.surname,
+          clubId = clubId
+        )
       )
     }
   }

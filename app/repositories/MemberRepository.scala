@@ -28,13 +28,14 @@ class MemberRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impl
     ) <> (MemberDTO.tupled, MemberDTO.unapply)
   }
 
-  private val clubs = TableQuery[Members]
+  private val members = TableQuery[Members]
 
-  def saveMember(club: MemberDTO): Future[Unit] = {
-    db.run (clubs += club).map(_ => ())
+  def saveMember(member: MemberDTO): Future[Unit] = {
+    println(member)
+    db.run (members += member).map(_ => ())
   }
 
-  def getMembers(): Future[Seq[MemberDTO]]= {
-    db.run(clubs.result)
+  def getMembers: Future[Seq[MemberDTO]]= {
+    db.run(members.result)
   }
 }

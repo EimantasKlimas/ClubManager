@@ -30,7 +30,7 @@ class ClubRepository @Inject()(
 
  def saveClub(club: ClubDTO): Future[Unit] = db.run (clubs += club).map(_ => ())
 
- def getClubs(): Future[Seq[ClubDTO]]= {
+ def getClubs: Future[Seq[ClubDTO]]= {
   db.run(clubs.result)
  }
 }

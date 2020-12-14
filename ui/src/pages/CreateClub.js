@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Container from "@material-ui/core/Container";
 import {VALUES} from "../constants/values";
@@ -22,6 +23,10 @@ const CreateClub = () => {
         break;
       case VALUES.ADDMEMBER:
         handleAddMember()
+        break;
+      case VALUES.ADDCLUB:
+        handleAddClub()
+        break;
       default:
         console.log("Unknown event")
     }
@@ -37,6 +42,10 @@ const CreateClub = () => {
     setMemberList(newList);
     setName("");
     setSurname("");
+  }
+
+  const handleAddClub = () => {
+
   }
 
   return(
