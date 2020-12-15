@@ -1,4 +1,4 @@
-import actors.MemberActor
+import actors._
 import com.google.inject.AbstractModule
 import play.api.libs.concurrent.AkkaGuiceSupport
 

@@ -35,7 +35,4 @@ class MemberRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(impl
     db.run (members += member).map(_ => ())
   }
 
-  def getMembers: Future[Seq[MemberDTO]]= {
-    db.run(members.result)
-  }
 }

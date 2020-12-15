@@ -4,10 +4,17 @@ import actors.MemberActor.SaveMemberRequest
 import repositories.data.Model.{ClubDTO, MemberDTO}
 
 object Model {
+  case class ClubDetails(
+    id: String,
+    name: String,
+    member: Member
+  )
+
   case class Member(
     name: String,
     surname: String
   )
+
   case class ClubData (
     name: String,
     members: Vector[Member]
@@ -26,4 +33,15 @@ object Model {
       )
     }
   }
+
+  sealed trait WebsocketRequest
+  object  WebsocketRequest {
+    case object Disconnect {
+      override def toString: String = "CLOSE"
+    }
+    case object GetData {
+      override def toString: String = "GETDATA"
+    }
+  }
+
 }
