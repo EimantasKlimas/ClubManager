@@ -7,7 +7,7 @@ object Model {
   case class ClubDetails(
     id: String,
     name: String,
-    member: MemberInfo
+    member: Option[MemberInfo]
   )
 
   case class Member(

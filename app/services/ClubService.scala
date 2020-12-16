@@ -6,6 +6,8 @@ import akka.stream.Materializer
 import akka.stream.scaladsl.{Sink, Source}
 import model.Model.ClubData
 import repositories.ClubRepository
+import repositories.data.Model.{ClubDTO, MemberDTO}
+import slick.basic.DatabasePublisher
 
 import javax.inject._
 import scala.concurrent.{ExecutionContext, Future}
@@ -31,7 +33,7 @@ class ClubService @Inject()(clubRepository: ClubRepository, @Named("member-actor
         }
     }
   }
-  def getClubDetailsSource = {
+  def getClubDetailsSource: DatabasePublisher[(ClubDTO, Option[MemberDTO])] = {
     clubRepository.getClubsStream
   }
 }

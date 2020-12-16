@@ -52,9 +52,9 @@ class ClubRepository @Inject()(
   db.run(clubs.result)
  }
 
- def getClubsStream: DatabasePublisher[(ClubDTO, MemberDTO)] = {
+ def getClubsStream: DatabasePublisher[(ClubDTO, Option[MemberDTO])] = {
   val query = clubs
-    .join(members)
+    .joinLeft(members)
     .on {
      case (clubResult, memberResult) =>
       clubResult.id === memberResult.clubId

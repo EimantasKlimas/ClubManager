@@ -47,14 +47,16 @@ const ListClubs = () => {
 
   const memberProcessing = () => {
     clubsDetails.forEach((clubsDetails) => {
-      let member = {
-        id: clubsDetails.member.id,
-        name: clubsDetails.member.name,
-        surname: clubsDetails.member.surname,
-        clubId: clubsDetails.id
-      }
-      if(!checkForMemberPresence(member.id)) {
-        setMembers(prev => [...prev, member])
+      if(clubsDetails.member) {
+        let member = {
+          id: clubsDetails.member.id,
+          name: clubsDetails.member.name,
+          surname: clubsDetails.member.surname,
+          clubId: clubsDetails.id
+        }
+        if (!checkForMemberPresence(member.id)) {
+          setMembers(prev => [...prev, member])
+        }
       }
     })
   }
