@@ -7,10 +7,16 @@ object Model {
   case class ClubDetails(
     id: String,
     name: String,
-    member: Member
+    member: MemberInfo
   )
 
   case class Member(
+    name: String,
+    surname: String
+  )
+
+  case class MemberInfo(
+    id: String,
     name: String,
     surname: String
   )

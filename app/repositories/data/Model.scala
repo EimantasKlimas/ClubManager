@@ -1,6 +1,6 @@
 package repositories.data
 
-import model.Model.Member
+import model.Model.MemberInfo
 
 import scala.util.Random
 
@@ -11,7 +11,8 @@ object Model {
     surname: String,
     clubId: String
   ) {
-    def toMember: Member = Member(
+    def toMember: MemberInfo = MemberInfo(
+      id = id,
       name = name,
       surname = surname
     )

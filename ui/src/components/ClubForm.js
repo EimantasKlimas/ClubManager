@@ -23,7 +23,7 @@ const ClubForm = (props) => {
           <Grid item xs={12} className="member-form-item">
             <TextField
               label="Club Name"
-              name={VALUES.MEMBERSURNAME}
+              name={VALUES.CLUBNAME}
               size="small"
               variant="standard"
               onChange={handleChange}/>
