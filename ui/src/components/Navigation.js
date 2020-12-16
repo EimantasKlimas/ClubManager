@@ -9,8 +9,6 @@ import styled from 'styled-components';
 
 
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom';
 
@@ -53,12 +51,12 @@ import {
         >
           <MenuItem onClick={handleClose}>
             <StyledLink to="/">
-              <p className="Link"> TEST2 </p>
+              <p className="Link"> List </p>
             </StyledLink>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <StyledLink to="/api/summary">
-              <p className="Link"> Test2 </p>
+            <StyledLink to="/create">
+              <p className="Link"> Create </p>
             </StyledLink>
           </MenuItem>
         </Menu>

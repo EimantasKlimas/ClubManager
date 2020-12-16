@@ -2,18 +2,30 @@ import React from 'react';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Container from "@material-ui/core/Container";
+import Collapse from '@material-ui/core/Collapse';
+import {Typography} from "@material-ui/core";
 import {VALUES} from "../constants/values";
 import {PROTOCOL} from "../constants/protocol"
 import "../styles/CreateClub.css"
-import {MemberForm} from "../components/MemberForn";
+import {MemberForm} from "../components/MemberForm";
 import {MemberList} from "../components/MemberList";
 import {ClubForm} from "../components/ClubForm";
+import {SuccessMessage} from "../components/SuccessMessage";
 
 const CreateClub = () => {
   const [clubName, setClubName] = React.useState("")
   const [memberName, setName] = React.useState("");
   const [memberSurname, setSurname] = React.useState("");
   const [memberList, setMemberList] = React.useState([]);
+  const [open, setOpen] = React.useState(true);
+  const [createStatus, setCreateStatus] = React.useState(null);
+
+  const successMessage = () => {
+    return(
+      <Paper className="form-item">
+        <SuccessMessage open={open} success={createStatus}/>
+      </Paper>)
+  }
 
   const handleChange = (event) => {
     switch (event.target.name.toUpperCase()) {
@@ -66,7 +78,7 @@ const CreateClub = () => {
 
     axios
       .post(url, data, config)
-      .then(res => console.log(res.status))
+      .then(res => setCreateStatus(res.status))
   }
 
   return(
@@ -74,8 +86,9 @@ const CreateClub = () => {
         <Paper className="form-item">
         <ClubForm onChange={handleChange}/>
         </Paper>
-        <Paper className="form-item">
-        <MemberForm
+      {createStatus != null ? successMessage() : null}
+      <Paper className="form-item">
+          <MemberForm
           onChange={handleChange}
           memberName={memberName}
           memberSurname={memberSurname}

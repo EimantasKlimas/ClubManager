@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import {PROTOCOL} from "../constants/protocol";
 import List from '@material-ui/core/List';
+import Container from "@material-ui/core/Container";
+import {ClubListItem} from "../components/ClubListItem";
+import {Paper} from "@material-ui/core";
 
 const ListClubs = () => {
   const webSocketUri = "ws://" +
@@ -47,7 +50,8 @@ const ListClubs = () => {
       let member = {
         id: clubsDetails.member.id,
         name: clubsDetails.member.name,
-        surname: clubsDetails.member.surname
+        surname: clubsDetails.member.surname,
+        clubId: clubsDetails.id
       }
       if(!checkForMemberPresence(member.id)) {
         setMembers(prev => [...prev, member])
@@ -63,23 +67,26 @@ const ListClubs = () => {
     return members.map((member) => member.id).includes(memberId);
   }
 
+  const getClubMembers = (clubId)  => {
+    return members.filter((member) => member.clubId === clubId);
+  }
+
   useEffect(establishWebsocket,[]);
   useEffect(clubProcessing, [clubsDetails]);
   useEffect(memberProcessing, [clubs]);
-  setInterval(() => getClubData(), 30000)
+  setInterval(() => getClubData(), 45000)
 
   return(
-    <List>
+    <Container>
+      <List>
       {clubs.map((club) =>
-        <p key={club.id}>{club.id}</p>
-      )
+        <Paper>
+        <ClubListItem key={club.id} club={club} members={getClubMembers(club.id)}/>
+        </Paper>
+        )
       }
-
-      <h1>MEMBS YO</h1>
-      {members.map((member) =>
-        <p key = {member.id}> {member.name}</p>
-      )}
-    </List>
+      </List>
+    </Container>
   );
 }
 

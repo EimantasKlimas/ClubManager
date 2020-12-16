@@ -8,13 +8,14 @@ import "../styles/CreateClub.css"
 import Container from "@material-ui/core/Container";
 
 const ClubForm = (props) => {
+
   const handleChange = (event) => {
     props.onChange(event);
-  }
+  };
   const handleChangeAndModify = (event, eventName) => {
     event.target.name = eventName;
     handleChange(event)
-  }
+  };
 
   return(
     <Container maxWidth="xs">

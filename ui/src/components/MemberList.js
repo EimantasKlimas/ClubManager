@@ -4,7 +4,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import PersonIcon from '@material-ui/icons/Person';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 const MemberList = ({memberList}) => {
   return(
@@ -16,9 +15,6 @@ const MemberList = ({memberList}) => {
             <PersonIcon/>
           </ListItemIcon>
           <ListItemText primary={member.name.concat(" " + member.surname)}/>
-          <ListItemIcon >
-            <RemoveCircleIcon/>
-          </ListItemIcon>
         </ListItem>
       )}
     </List>
