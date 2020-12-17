@@ -15,7 +15,7 @@ const MemberList = ({open,members}) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {members.map((member) =>
-            <ListItem >
+            <ListItem key={member.id}>
               <ListItemText inset primary={memberText(member)}/>
             </ListItem>
           )

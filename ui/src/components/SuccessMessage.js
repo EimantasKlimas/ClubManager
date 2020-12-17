@@ -5,7 +5,7 @@ import {Typography} from "@material-ui/core";
 const SuccessMessage = ({open, success}) => {
   return(
     <Collapse in={open} timeout="auto" unmountOnExit>
-      {(success == 200) ? <Typography> Success</Typography> : <Typography>Failure</Typography>}
+      {(success === 200) ? <Typography> Success</Typography> : <Typography>Failure</Typography>}
     </Collapse>
   )
 }

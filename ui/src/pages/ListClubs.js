@@ -82,8 +82,8 @@ const ListClubs = () => {
     <Container>
       <List>
       {clubs.map((club) =>
-        <Paper>
-        <ClubListItem key={club.id} club={club} members={getClubMembers(club.id)}/>
+        <Paper key={club.id}>
+        <ClubListItem  club={club} members={getClubMembers(club.id)}/>
         </Paper>
         )
       }

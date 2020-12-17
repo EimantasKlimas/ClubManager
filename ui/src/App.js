@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Navigation} from "./components/Navigation";
 import {Content} from "./components/Content"

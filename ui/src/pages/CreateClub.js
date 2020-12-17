@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import Container from "@material-ui/core/Container";
-import Collapse from '@material-ui/core/Collapse';
-import {Typography} from "@material-ui/core";
 import {VALUES} from "../constants/values";
 import {PROTOCOL} from "../constants/protocol"
 import "../styles/CreateClub.css"
@@ -17,13 +15,12 @@ const CreateClub = () => {
   const [memberName, setName] = React.useState("");
   const [memberSurname, setSurname] = React.useState("");
   const [memberList, setMemberList] = React.useState([]);
-  const [open, setOpen] = React.useState(true);
   const [createStatus, setCreateStatus] = React.useState(null);
 
   const successMessage = () => {
     return(
       <Paper className="form-item">
-        <SuccessMessage open={open} success={createStatus}/>
+        <SuccessMessage open={true} success={createStatus}/>
       </Paper>)
   }
 

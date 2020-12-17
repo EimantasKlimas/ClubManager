@@ -1,4 +1,4 @@
-name := """scala-play-react-seed"""
+name := """club-manager"""
 
 version := "1.0-SNAPSHOT"
 val AkkaVersion = "2.6.8"
